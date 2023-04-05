@@ -12,7 +12,7 @@ module.exports = function(req, res, next){
         try{
             jwt.verify(token, secret, (error, data) => {
                 if(error){
-                    res.status(403)
+                    res.status(401)
                     res.json({error: 'Você não está autenticado!'})
                     return
                 }else{
@@ -22,13 +22,13 @@ module.exports = function(req, res, next){
                 }
             })
         }catch(error){
-            res.status(403)
+            res.status(401)
             res.json({error: 'Você não está autenticado!'})
             return
         }
 
     }else{
-        res.status(403)
+        res.status(401)
         res.json({error: 'Você não está autenticado!'})
         return
     }
