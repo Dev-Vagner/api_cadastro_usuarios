@@ -16,5 +16,8 @@
             "url": "http://localhost:8686",
             "description": "API de test"
         }
-    ]
+    ],
+    "paths": {
+        
+    }
 }
