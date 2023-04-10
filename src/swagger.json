@@ -10,5 +10,11 @@
             "name": "MIT License"
         },
         "version": "1.0.0"
-    }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8686",
+            "description": "API de test"
+        }
+    ]
 }
