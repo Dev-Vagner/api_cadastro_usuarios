@@ -18,6 +18,17 @@
         }
     ],
     "paths": {
-        
+        "/": {
+            "get":{
+                "sumary": "Rota de teste",
+                "description": "Essa rota servirá para testar se a API está rodando ou não!",
+                "tags": ["Test"],
+                "responses": {
+                    "200": {
+                        "description": "OK!"
+                    }
+                }
+            }
+        }
     }
 }
