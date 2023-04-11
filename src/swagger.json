@@ -65,16 +65,60 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Se o usuário for cadastrado com sucesso!"
+                        "description": "Se o usuário for cadastrado com sucesso!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "sucess": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
-                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!"
+                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "409": {
-                        "description": "Se o email já estiver cadastrado!"
+                        "description": "Se o email já estiver cadastrado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Se ocorrer algum erro interno no servidor!"
+                        "description": "Se ocorrer algum erro interno no servidor!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -124,13 +168,46 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum dos campos for inexistente!"
+                        "description": "Se algum dos campos for inexistente!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "404": {
-                        "description": "Se o email ou senha estiver incorretos!"
+                        "description": "Se o email ou senha estiver incorretos!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "500": {
-                        "description": "Se ocorrer algum erro interno no servidor!"
+                        "description": "Se ocorrer algum erro interno no servidor!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
