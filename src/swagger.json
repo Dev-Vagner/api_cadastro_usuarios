@@ -211,6 +211,75 @@
                     }
                 }
             }
+        },
+        "/users": {
+            "get":{
+                "sumary": "Para listar todos os usuários",
+                "description": "Essa rota servirá para listar o ID, nome e email de todos os usuários!",
+                "tags": ["User"],
+                "security": [{"bearerAuth": [] }],
+                "responses": {
+                    "200": {
+                        "description": "Se for retornado os dados dos usuários com sucesso!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        }  
+                                    }
+ 
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Se o usuário não estiver autenticado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Se ocorrer algum erro interno no servidor!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
         }
     }
 }
