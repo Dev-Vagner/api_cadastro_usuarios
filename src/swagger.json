@@ -726,7 +726,7 @@
                         }
                     },
                     "403": {
-                        "description": "Se o token existir no banco de dados mas não corresponder ao usuário logado ou se já tiver sido utilizado!",
+                        "description": "Se o token existir no banco de dados mas não corresponder ao ID do usuário logado ou se já tiver sido utilizado!",
                         "content": {
                             "application/json": {
                                 "schema": {
