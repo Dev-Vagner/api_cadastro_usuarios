@@ -86,7 +86,7 @@ class UserController {
         var id = req.params.id
 
         if(id != req.dataUserLogged.id){
-            res.status(403)
+            res.status(401)
             res.json({error: 'O paramêtro do ID não corresponde ao ID do usuário logado!'})
             return
         }else{
@@ -137,7 +137,7 @@ class UserController {
         var id = req.params.id
 
         if(id != req.dataUserLogged.id){
-            res.status(403)
+            res.status(401)
             res.json({error: 'O paramêtro do ID não corresponde ao ID do usuário logado!'})
             return
         }else{
@@ -158,7 +158,7 @@ class UserController {
         var id = req.params.id
 
         if(id != req.dataUserLogged.id){
-            res.status(403)
+            res.status(401)
             res.json({error: 'O paramêtro do ID não corresponde ao ID do usuário logado!'})
             return
         }else{
@@ -202,7 +202,7 @@ class UserController {
         var id = req.params.id
 
         if(id != req.dataUserLogged.id){
-            res.status(403)
+            res.status(401)
             res.json({error: 'O paramêtro do ID não corresponde ao ID do usuário logado!'})
             return
         }else{

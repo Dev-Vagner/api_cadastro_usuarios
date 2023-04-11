@@ -214,7 +214,7 @@
         },
         "/users": {
             "get":{
-                "sumary": "Para listar todos os usuários",
+                "sumary": "Listar todos os usuários",
                 "description": "Essa rota servirá para listar o ID, nome e email de todos os usuários!",
                 "tags": ["User"],
                 "security": [{"bearerAuth": [] }],
@@ -243,6 +243,198 @@
                     },
                     "401": {
                         "description": "Se o usuário não estiver autenticado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Se ocorrer algum erro interno no servidor!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "get":{
+                "sumary": "Buscar usuários pelo ID",
+                "description": "Essa rota servirá para buscar os dados de um usuário específico, pelo ID!",
+                "tags": ["User"],
+                "security": [{"bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do usuário para a busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Se for retornado os dados do usuário com sucesso!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        }  
+                                    }
+ 
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Se o usuário não estiver autenticado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Se o ID do usuário não for encontrado no banco de dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Se ocorrer algum erro interno no servidor!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "sumary": "Editar usuários pelo ID",
+                "description": "Essa rota servirá para editar os dados do usuário pelo ID!",
+                "tags": ["User"],
+                "security": [{"bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do usuário para a busca",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "name": "Exemplo",
+                                        "email": "exemplo@email.com"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se os dados do usuário forem alterados com sucesso!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "sucess": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Se o usuário não estiver autenticado ou o ID não corresponder ao ID do usuário logado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Se o usuário alterar o email para um email já cadastrado!",
                         "content": {
                             "application/json": {
                                 "schema": {
