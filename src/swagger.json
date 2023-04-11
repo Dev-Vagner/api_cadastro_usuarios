@@ -541,9 +541,6 @@
                         "application/json": {
                             "schema": {
                                 "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
                                     "email": {
                                         "type": "string"
                                     }
@@ -552,7 +549,6 @@
                             "examples": {
                                 "user": {
                                     "value": {
-                                        "name": "Exemplo",
                                         "email": "exemplo@email.com"
                                     }
                                 }
@@ -562,7 +558,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Se os dados do usuário forem alterados com sucesso!",
+                        "description": "Se o token for enviado com sucesso para o email do usuário!",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -576,7 +572,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum campo editado for inexistente ou tiver o formato incorreto!",
+                        "description": "Se o campo do email for inexistente ou tiver o formato incorreto!",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -603,8 +599,148 @@
                             }
                         }
                     },
-                    "409": {
-                        "description": "Se o usuário alterar o email para um email já cadastrado!",
+                    "403": {
+                        "description": "Se o email não corresponder ao email do usuário logado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Se o email não tiver cadastrado no banco de dados!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Se ocorrer algum erro interno no servidor!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/changepassword/{id}": {
+            "post": {
+                "sumary": "Alterar senha com o token de recuperação de senha",
+                "description": "Essa rota servirá para que o usuário consiga alterar sua senha utilizando o token de recuperação de senha!",
+                "tags": ["User"],
+                "security": [{"bearerAuth": [] }],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do usuário",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "token": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "token": "token123",
+                                        "password": "novasenha123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se o token for enviado com sucesso para o email do usuário!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "sucess": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Se o usuário não estiver autenticado ou o ID não corresponder ao ID do usuário logado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Se o token existir no banco de dados mas não corresponder ao usuário logado ou se já tiver sido utilizado!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Se o token não existir no banco de dados!",
                         "content": {
                             "application/json": {
                                 "schema": {
