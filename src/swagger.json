@@ -406,7 +406,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!",
+                        "description": "Se algum campo editado for inexistente ou tiver o formato incorreto!",
                         "content": {
                             "application/json": {
                                 "schema": {
