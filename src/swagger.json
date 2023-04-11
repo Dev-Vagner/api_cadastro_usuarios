@@ -78,6 +78,51 @@
                     }
                 }
             }
+        },
+        "/login": {
+            "post":{
+                "sumary": "Autenticação do usuário",
+                "description": "Essa rota servirá para gerar o token de autenticação do usuário",
+                "tags": ["User"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "email": "exemplo@email.com",
+                                        "password": "exemplo123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Se o usuário for cadastrado com sucesso!"
+                    },
+                    "400": {
+                        "description": "Se algum dos campos for inexistente!"
+                    },
+                    "409": {
+                        "description": "Se o email já estiver cadastrado!"
+                    },
+                    "500": {
+                        "description": "Se ocorrer algum erro interno no servidor!"
+                    }
+                }
+            }
         }
     }
 }
