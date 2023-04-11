@@ -39,14 +39,42 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                    
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "examples": {
+                                "user": {
+                                    "value": {
+                                        "name": "Exemplo",
+                                        "email": "exemplo@email.com",
+                                        "password": "exemplo123"
+                                    }
+                                }
                             }
                         }
                     }
                 },
                 "responses": {
                     "200": {
-                        "description": "OK!"
+                        "description": "Se o usuário for cadastrado com sucesso!"
+                    },
+                    "400": {
+                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!"
+                    },
+                    "409": {
+                        "description": "Se o email já estiver cadastrado!"
+                    },
+                    "500": {
+                        "description": "Se ocorrer algum erro interno no servidor!"
                     }
                 }
             }
