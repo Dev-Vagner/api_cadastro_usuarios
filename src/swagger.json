@@ -110,13 +110,24 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Se o usuário for cadastrado com sucesso!"
+                        "description": "Se o login for realizado com sucesso!",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Se algum dos campos for inexistente!"
                     },
-                    "409": {
-                        "description": "Se o email já estiver cadastrado!"
+                    "404": {
+                        "description": "Se o email ou senha estiver incorretos!"
                     },
                     "500": {
                         "description": "Se ocorrer algum erro interno no servidor!"
