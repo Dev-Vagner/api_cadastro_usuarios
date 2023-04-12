@@ -522,15 +522,15 @@
                 }
             }
         },
-        "/recoverpassword/{id}": {
+        "/passwordToken/{userId}": {
             "post": {
-                "sumary": "Enviar token de recuperação de senha para o email",
-                "description": "Essa rota servirá para enviar o token de recuperação de senha para o email do usuário logado!",
+                "sumary": "Criar e enviar token de recuperação de senha para o email do usuário",
+                "description": "Essa rota servirá para criar e enviar o token, de recuperação de senha, para o email do usuário logado!",
                 "tags": ["User"],
                 "security": [{"bearerAuth": [] }],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "userId",
                         "in": "path",
                         "description": "ID do usuário",
                         "required": true
@@ -572,7 +572,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se o campo do email for inexistente ou tiver o formato incorreto!",
+                        "description": "Se o campo do email não estiver preenchido ou tiver com o formato incorreto!",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -644,15 +644,15 @@
                 }
             }
         },
-        "/changepassword/{id}": {
-            "post": {
+        "/password/{userId}": {
+            "put": {
                 "sumary": "Alterar senha com o token de recuperação de senha",
                 "description": "Essa rota servirá para que o usuário consiga alterar sua senha utilizando o token de recuperação de senha!",
                 "tags": ["User"],
                 "security": [{"bearerAuth": [] }],
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "userId",
                         "in": "path",
                         "description": "ID do usuário",
                         "required": true

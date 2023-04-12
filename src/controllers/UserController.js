@@ -154,8 +154,8 @@ class UserController {
         }
     }
 
-    async recoverPassword(req, res){
-        var id = req.params.id
+    async passwordToken(req, res){
+        var id = req.params.userId
 
         if(id != req.dataUserLogged.id){
             res.status(401)
@@ -199,7 +199,7 @@ class UserController {
     }
 
     async changePassword(req, res){
-        var id = req.params.id
+        var id = req.params.userId
 
         if(id != req.dataUserLogged.id){
             res.status(401)
