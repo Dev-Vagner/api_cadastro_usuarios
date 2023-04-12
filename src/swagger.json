@@ -382,8 +382,8 @@
                             "examples": {
                                 "user": {
                                     "value": {
-                                        "name": "Exemplo",
-                                        "email": "exemplo@email.com"
+                                        "name": "Exemplo Edição",
+                                        "email": "exemploedicao@email.com"
                                     }
                                 }
                             }
@@ -406,7 +406,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum campo editado for inexistente ou tiver o formato incorreto!",
+                        "description": "Se algum campo não estiver preenchido ou tiver o formato incorreto!",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -434,7 +434,7 @@
                         }
                     },
                     "409": {
-                        "description": "Se o usuário alterar o email para um email já cadastrado!",
+                        "description": "Se o usuário alterar o email para um email já cadastrado por outro usuário!",
                         "content": {
                             "application/json": {
                                 "schema": {
