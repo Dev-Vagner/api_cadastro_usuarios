@@ -275,7 +275,7 @@
         "/user/{id}": {
             "get":{
                 "sumary": "Buscar usuários pelo ID",
-                "description": "Essa rota servirá para buscar os dados de um usuário específico, pelo ID!",
+                "description": "Essa rota servirá para buscar os dados de um usuário específico pelo ID!",
                 "tags": ["User"],
                 "security": [{"bearerAuth": [] }],
                 "parameters": [

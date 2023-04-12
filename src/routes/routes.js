@@ -7,7 +7,7 @@ const UserLogged = require('../middleware/UserLogged')
 router.get('/', HomeController.index) // OK
 router.post('/user', UserController.create) //OK
 router.get('/users', UserLogged, UserController.findAllUsers)
-router.get('/user/:id', UserLogged, UserController.findUser)
+router.get('/user/:id', UserLogged, UserController.findUser) //OK
 router.put('/user/:id', UserLogged, UserController.edit)
 router.delete('/user/:id', UserLogged, UserController.delete)
 router.post('/recoverpassword/:id', UserLogged, UserController.recoverPassword)

@@ -19,7 +19,7 @@ class User {
             if(user.length > 0){
                 return {status: 200, data: user[0]}
             }else{
-                return {status: 404, error: 'ID do usuário não encontrado no banco de dados'}
+                return {status: 404, error: 'ID do usuário não encontrado no banco de dados!'}
             }
         }catch(error){
             console.log(error)
