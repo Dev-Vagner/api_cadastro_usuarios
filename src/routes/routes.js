@@ -4,8 +4,8 @@ const HomeController = require('../controllers/HomeController')
 const UserController = require("../controllers/UserController")
 const UserLogged = require('../middleware/UserLogged')
 
-router.get('/', HomeController.index)
-router.post('/user', UserController.create)
+router.get('/', HomeController.index) // OK
+router.post('/user', UserController.create) //OK
 router.get('/users', UserLogged, UserController.findAllUsers)
 router.get('/user/:id', UserLogged, UserController.findUser)
 router.put('/user/:id', UserLogged, UserController.edit)

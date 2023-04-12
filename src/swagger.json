@@ -33,7 +33,7 @@
         "/user": {
             "post":{
                 "sumary": "Cadastro de usuário",
-                "description": "Essa rota servirá para cadastrar um novo usuário. Obs.: O nome do usuário deverá conter pelo menos 3 caracteres e não poderá conter 2 espaços vazios seguidos, e a senha deverá conter pelo menos 5 caracteres e não poderá conter nenhum espaço vazio!",
+                "description": "Essa rota servirá para cadastrar um novo usuário. <br><br> <strong>Obs.: O nome do usuário deverá conter pelo menos 3 caracteres e não poderá conter 2 espaços vazios seguidos, e a senha deverá conter pelo menos 5 caracteres e não poderá conter nenhum espaço vazio.</strong>",
                 "tags": ["User"],
                 "requestBody": {
                     "content": {
@@ -79,7 +79,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!",
+                        "description": "Se algum campo não for preenchido ou tiver o formato incorreto!",
                         "content": {
                             "application/json": {
                                 "schema": {
