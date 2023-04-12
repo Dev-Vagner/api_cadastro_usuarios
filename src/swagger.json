@@ -126,7 +126,7 @@
         "/login": {
             "post":{
                 "sumary": "Autenticação do usuário",
-                "description": "Essa rota servirá para gerar o token de autenticação do usuário",
+                "description": "Essa rota servirá para gerar o token de autenticação do usuário.",
                 "tags": ["User"],
                 "requestBody": {
                     "content": {
@@ -168,7 +168,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum dos campos for inexistente!",
+                        "description": "Se algum dos campos não for preenchido!",
                         "content": {
                             "application/json": {
                                 "schema": {

@@ -12,6 +12,6 @@ router.put('/user/:id', UserLogged, UserController.edit)
 router.delete('/user/:id', UserLogged, UserController.delete)
 router.post('/recoverpassword/:id', UserLogged, UserController.recoverPassword)
 router.post('/changepassword/:id', UserLogged, UserController.changePassword)
-router.post('/login', UserController.login)
+router.post('/login', UserController.login) //OK
 
 module.exports = router
