@@ -4,6 +4,7 @@
         "title": "API - Cadastro de usuários",
         "description": "Essa API tem como objetivo cadastrar e realizar a autenticação de usuários",
         "contact": {
+            "name": "Vagner Bruno",
             "email": "vagnerbackend@gmail.com"
         },
         "license": {
@@ -215,7 +216,7 @@
         "/users": {
             "get":{
                 "sumary": "Listar todos os usuários",
-                "description": "Essa rota servirá para listar o ID, nome e email de todos os usuários!",
+                "description": "Essa rota servirá para retornar uma lista de todos os usuários e seus respectivos dados (ID, nome e senha)!",
                 "tags": ["User"],
                 "security": [{"bearerAuth": [] }],
                 "responses": {
@@ -234,9 +235,29 @@
                                         },
                                         "email": {
                                             "type": "string"
-                                        }  
+                                        }
                                     }
- 
+                                },
+                                "examples": {
+                                    "users": {
+                                        "value": [
+                                            {
+                                                "id": 1,
+                                                "name": "Exemplo1",
+                                                "email": "exemplo1@email.com"
+                                            },
+                                            {
+                                                "id": 2,
+                                                "name": "Exemplo2",
+                                                "email": "exemplo2@email.com"
+                                            },
+                                            {
+                                                "id": 3,
+                                                "name": "Exemplo3",
+                                                "email": "exemplo3@email.com"
+                                            }
+                                        ]
+                                    }
                                 }
                             }
                         }
