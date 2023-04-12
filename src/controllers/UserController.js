@@ -154,7 +154,7 @@ class UserController {
         }
     }
 
-    async passwordToken(req, res){
+    async sendPasswordToken(req, res){
         var id = req.params.userId
 
         if(id != req.dataUserLogged.id){

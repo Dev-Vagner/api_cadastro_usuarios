@@ -684,7 +684,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Se o token for enviado com sucesso para o email do usuário!",
+                        "description": "Se a senha do usuário for alterada com sucesso!",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -698,7 +698,7 @@
                         }
                     },
                     "400": {
-                        "description": "Se algum campo for inexistente ou tiver o formato incorreto!",
+                        "description": "Se algum campo não for preenchido ou tiver o formato incorreto!",
                         "content": {
                             "application/json": {
                                 "schema": {
