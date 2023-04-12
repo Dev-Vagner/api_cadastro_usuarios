@@ -13,7 +13,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:8686",
+            "url": "http://localhost:8080",
             "description": "API de test"
         }
     ],
